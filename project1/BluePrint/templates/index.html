@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block title %}首页{% endblock %}
+{% block header %}首页{% endblock %}
+{% block css %}
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="show"></div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        公司新闻
+                        <a class="pull-right" href="#">查看更多...</a>
+                    </div>
+                    <div class="panel-body">
+                    {% for news in news_list %}
+                        <div class="col-lg-6"><a href="/detail_news/{{ news.id }}">{{ news.title | get_title }}</a></div>
+                        <div class="col-lg-6 text-right">{{ news.pubtime | get_datatime }}</div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        考勤情况
+                        <a class="pull-right" href="/attendance_me">查看更多...</a>
+                    </div>
+                    <div class="panel-body">
+                        {% for attendance in attendance_list %}
+                        <div class="col-lg-6">{{ attendance.reason }}</div>
+                        <div class="col-lg-6 text-right">{{ attendance.status }}</div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block  script %}
+    <script src="/static/lib/echarts/js/echarts.min.js"></script>
+    <script src="/static/js/index.js"></script>
+{% endblock %}

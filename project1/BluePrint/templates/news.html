@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}新闻管理{% endblock %}
+{% block header %}
+    新闻管理<a class="btn btn-default pull-right" href="/add_news">添加</a>
+{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                            <tr>
+                                <th>标题</th>
+                                <th>作者</th>
+                                <th>时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for new in news_list %}
+                            <tr>
+                                <td class="col-lg-3">{{ new.title }}</td>
+                                <td class="col-lg-3">{{ new.author }}</td>
+                                <td class="col-lg-3">{{ new.pubtime | get_datatime }}</td>
+                                <td class="col-lg-3">
+                                    <a class="btn btn-default" href="detail_news/{{ new.id }}">详情</a>
+                                    <a class="btn btn-default" href="edit_news/{{ new.id }}">编辑</a>
+                                    <a class="btn btn-default" href="delete_news/{{ new.id }}">删除</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+{% endblock %}
+{% block  script %} {% endblock %}

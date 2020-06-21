@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}部门管理{% endblock %}
+{% block header %}部门管理<a class="btn btn-default pull-right" href="/add_department">添加</a>{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+
+    <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>部门名称</th>
+                                <th>部门描述</th>
+                                <th>部门操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in d_list %}
+                            <tr>
+                                <td class="col-lg-4">{{ i.name }}</td>
+                                <td class="col-lg-4">{{ i.description }}</td>
+                                <td class="col-lg-4">
+                                    <a class="btn btn-default" href="/edit_department?department_id={{ i.id }}">编辑</a>
+                                    <a class="btn btn-default" href="/delete_department?department_id={{ i.id }}">删除</a>
+                                    <a class="btn btn-default" href="/position?department_id={{ i.id }}">查看职位</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+{% endblock %}
+{% block  script %} {% endblock %}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>权限管理-编辑</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./lib/sb-admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="./lib/sb-admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./lib/sb-admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="./lib/sb-admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">中公优就业考勤管理系统</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+                <a>欢迎：<span>大锤</span></a>
+            </li>
+            <li>
+                <a href="login.html">退出</a>
+            </li>
+            <li>
+                <a href="profile.html">个人中心</a>
+            </li>
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                    </li>
+
+                    <li>
+                        <a href="news.html"><i class="fa fa-envelope-o fa-fw"></i> 新闻管理</a>
+                    </li>
+
+
+                    <li>
+                        <a href="permission.html"><i class="fa fa-table fa-fw"></i> 权限管理</a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 考勤管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="attendance_me.html">个人考勤</a>
+                            </li>
+
+                            <li>
+                                <a href="attendance_subordinate.html">下属考勤</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> 人事管理<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="department.html">部门管理</a>
+                            </li>
+                            <li>
+                                <a href="person.html">职员管理</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">权限管理-编辑</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <form method="post" action="permission.html">
+                            <input type="hidden" name="csrf_token"
+                                   value="ImJmNjg3YTI4NGEzYTk0YTczY2VjZGM2NmQ1OWU4MWIwZGRmYzM1NzAi.XrK8mQ.-2lRq36_MPTp_tdWTOuPmytf6OY">
+                            <div class="form-group">
+                                <label class="control-label">权限名称：</label>
+                                <input class="form-control" type="text" name="name" value="新闻管理">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">权限描述：</label>
+                                <textarea class="form-control" name="description">对新闻进行增删改查</textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="./lib/sb-admin/vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="./lib/sb-admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="./lib/sb-admin/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="./lib/sb-admin/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

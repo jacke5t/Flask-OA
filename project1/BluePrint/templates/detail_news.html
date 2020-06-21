@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}新闻详情{% endblock %}
+{% block header %}
+    新闻详情
+{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">来源：{{ news.author }} {{ news .pubtime| get_datatime }}</div>
+                        <hr>
+                        <div class="col-lg-12 text-center">
+                            {% if news.picture %}
+                            <img src="/static/img/{{ news.picture }}" alt="图片走丢了" class="col-lg-12">
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-12">
+                            {{ news.content| safe }}
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+{% endblock %}
+{% block  script %} {% endblock %}
+
+
+
+

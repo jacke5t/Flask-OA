@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ permission.name }}{% endblock %}
+{% block header %}{{ permission.name }}{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <form method="post" action="position_permission">
+                <input type="hidden"
+                       value="{{ csrf_token() }}"
+                       name="csrf_token">
+                <input type="hidden" name="permission_id" value="{{ permission_id }}">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>选择</th>
+                        <th>职位名称</th>
+                        <th>职位部门</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for position in position_list %}
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="position_ids" value="{{ position.id }}"
+                                       {% if position in permission.permission_position_map %}checked{% endif %}
+                                >
+                            </td>
+                            <td>{{ position.name }}</td>
+                            <td>{{ position.position_department_map.name }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                <button class="btn btn-primary btn-block">提交</button>
+            </form>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}
+{% block  script %} {% endblock %}

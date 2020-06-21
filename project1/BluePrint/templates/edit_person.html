@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+
+{% block title %}职员信息修改{% endblock %}
+{% block header %}职员信息修改{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <p></p>
+                        <form method="post" enctype="multipart/form-data" action="/edit_person/{{ person.id }}">
+                            <input id="csrf_token" name="csrf_token" type="hidden" value="{{ csrf_token() }}">
+                            <div class="form-group">
+                                <label class="control-label">用户名：</label>
+                                <input class="form-control" type="text" name="username" value="{{ person.username }}">
+                                <label class="text-primary username_error"></label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">密码：</label>
+                                <input class="form-control" type="password" name="password" value="{{ person.password }}">
+                                <label class="text-primary password_error"></label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">昵称：</label>
+                                <input class="form-control" type="text" name="nickname" value="{{ person.nickname }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">性别：</label>
+                                <select class="form-control" name="gender">
+                                    {% if person.gender == "男" %}
+                                        <option value="男" selected>男</option>
+                                        <option value="女">女</option>
+                                    {% else %}
+                                        <option value="男">男</option>
+                                        <option value="女" selected>女</option>
+                                    {% endif %}
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">年龄：</label>
+                                <input class="form-control" type="number" name="age" value="{{ person.age }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">电话：</label>
+                                <input class="form-control" type="text" name="phone" value="{{ person.phone }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">邮箱：</label>
+                                <input class="form-control" type="text" name="email" value="{{ person.email }}">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">头像：</label>
+                                <input type="file" name="photo">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">地址：</label>
+                                <textarea class="form-control" name="address">{{ person.address }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">职位：</label>
+                                <select class="form-control" name="position_id">
+                                    {% for i in position_list %}
+                                        {% if i.id == person.person_position_map.id %}
+                                            <option selected value={{ i.id }}>{{ i.name }}</option>
+                                        {% else %}
+                                            <option value={{ i.id }}>{{ i.name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block  script %} {% endblock %}
+
+
+

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+
+{% block title %}个人考勤{% endblock %}
+{% block header %}个人考勤{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#kqjl" data-toggle="tab">考勤记录</a></li>
+                <li><a href="#kqsq" data-toggle="tab">考勤申请</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="kqjl" class="tab-pane fade in active">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>假条编号</th>
+                            <th>假条状态</th>
+                            <th>请假类型</th>
+                            <th>请假原因</th>
+                            <th>起始时间</th>
+                            <th>结束时间</th>
+                            <th>审核人</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for a in attendance_list %}
+                            <tr>
+                                <td class="col-lg-1">{{ loop.index }}</td>
+                                <td class="col-lg-1">{{ a.status }}</td>
+                                <td class="col-lg-1">{{ a.type }}</td>
+                                <td class="col-lg-3">{{ a.reason }}</td>
+                                <td class="col-lg-2">{{ a.start }}</td>
+                                <td class="col-lg-2">{{ a.end }}</td>
+                                <td class="col-lg-2">{{ a.approver }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div id="kqsq" class="tab-pane fade in">
+                    <form method="post" action="">
+                        <input type="hidden" name="csrf_token"
+                               value="{{ csrf_token() }}">
+                        <div class="form-group">
+                            <label>原因:</label>
+                            <textarea class="form-control" name="reason"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>类型:</label>
+                            <select class="form-control" name="type">
+                                <option value="事假">事假</option>
+                                <option value="事假">婚嫁</option>
+                                <option value="事假">产假</option>
+                                <option value="事假">病假</option>
+                                <option value="事假">年假</option>
+                                <option value="事假">调休</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>假期时长(天):</label>
+                            <input class="form-control" type="text" name="day">
+                        </div>
+                        <div class="form-group">
+                            <label>开始时间:</label>
+                            <input class="form-control" type="text" name="start" value="2020-6-16 16:04:20">
+                        </div>
+                        <div class="form-group">
+                            <label>结束时间:</label>
+                            <input class="form-control" type="text" name="end" value="2020-6-18 16:04:20">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}
+{% block  script %} {% endblock %}

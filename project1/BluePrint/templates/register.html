@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/register" method="post">
+    {% for i in my_form %}
+        <p>{{ i.label }}:{{ i }}</p>
+    {% endfor %}
+    <input type="submit">
+</form>
+</body>
+</html>

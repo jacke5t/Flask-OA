@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}部门管理{% endblock %}
+{% block header %}部门管理{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <form method="post" action="/edit_department">
+                    <input type="hidden" name="csrf_token"
+                           value="{{ csrf_token() }}">
+                    <input type="hidden" name="department_id" value="{{ department.id }}">
+                    <div class="form-group">
+                        <label class="control-label">部门名称：</label>
+                        <input class="form-control" type="text" name="name" value="{{department.name}}">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">部门描述：</label>
+                        <textarea class="form-control" name="description">{{department.description}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}
+{% block  script %} {% endblock %}

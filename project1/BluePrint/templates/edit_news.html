@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}新闻管理{% endblock %}
+{% block header %}
+    新闻管理<a class="btn btn-default pull-right" href="/add_news">添加</a>
+{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="row">
+            <form method="post" enctype="multipart/form-data" action="/edit_news/{{ news.id }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <div class="form-group">
+                    <label class="control-label">标题:</label>
+                    <input class="form-control" type="text" name="title" placeholder="标题" value="{{ news.title }}">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">作者:</label>
+                    <input class="form-control" type="text" name="author" placeholder="作者" value="{{ news.author }}">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">内容:</label>
+                    <textarea class="form-control ckeditor" name="content">{{ news.content }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">图片:</label>
+                    <input type="file" name="picture">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block  script %}
+    <script src="/static/lib/ckeditor/ckeditor.js"></script>
+{% endblock %}

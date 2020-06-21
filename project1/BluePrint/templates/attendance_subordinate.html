@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block title %}下属考勤{% endblock %}
+{% block header %}下属考勤{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>假条编号</th>
+                    <th>假条状态</th>
+                    <th>请假类型</th>
+                    <th>请假原因</th>
+                    <th>起始时间</th>
+                    <th>结束时间</th>
+                    <th>申请人</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for a in attendance_list %}
+                    <tr>
+                        <td class="col-lg-1">{{ loop.index }}</td>
+                        <td class="col-lg-1">{{ a.status }}</td>
+                        <td class="col-lg-1">{{ a.type }}</td>
+                        <td class="col-lg-2">{{ a.reason }}</td>
+                        <td class="col-lg-2">{{ a.start }}</td>
+                        <td class="col-lg-2">{{ a.end }}</td>
+                        <td class="col-lg-1">{{ a.attendance_person_map.username }}</td>
+                        <td class="col-lg-2">
+                            <a href="/attendance_subordinate_update?status=yes&attendance_id={{ a.id }}"
+                               class="btn btn-default {% if a.status == "已通过" %}disabled{% endif %}">通过</a>
+                            <a href="/attendance_subordinate_update?status=no&attendance_id={{ a.id }}"
+                               class="btn btn-default {% if a.status == "已驳回" %}disabled{% endif %}">驳回</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+{% endblock %}
+{% block  script %} {% endblock %}

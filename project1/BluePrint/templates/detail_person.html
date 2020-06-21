@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block title %}职员信息{% endblock %}
+{% block header %}职员信息{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+   <div class="container">
+    <table class="table table-bordered" style="width: 1000px;">
+        <tr>
+            <td>用户名</td>
+            <td>{{ person.username }}</td>
+            <td class="col">昵称</td>
+            <td>{{person.nickname}}</td>
+            <td>性别</td>
+            <td>{{ person.gender }}</td>
+            <td rowspan="4" width="220"><img src="/static/img/{{ person.photo }}" alt="用户未上传图片" style="width: 200px;height: 150px"></td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td>{{ person.age }}</td>
+            <td>电话</td>
+            <td>{{person.phone}}</td>
+            <td>邮箱</td>
+            <td>{{person.email}}</td>
+        </tr>
+        <tr>
+            <td>绩效</td>
+            <td>{{person.score}}</td>
+            <td>工号</td>
+            <td>{{person.wordid}}</td>
+            <td>职位</td>
+            <td>{{person.person_position_map.name}}</td>
+        </tr>
+        <tr>
+            <td>部门</td>
+            <td>{{person.person_position_map.position_department_map.name}}</td>
+            <td>地址</td>
+            <td colspan="3">{{person.address}}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;vertical-align: middle">
+                简介
+            </td>
+            <td height="200px" colspan="6"></td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
+{% block  script %} {% endblock %}
+
+
+
+
+
